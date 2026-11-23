@@ -1,0 +1,45 @@
+:root{
+  --placa:#0f4a47; --pad:#f4eed8; --cobre:#c4742a;
+  --certo:#bfe8c9; --certo-b:#2e8b57; --errado:#f6c3bd; --errado-b:#c0392b;
+  --texto:#16302e; --fundo:#eef2ef;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;display:flex;flex-direction:column;overflow:hidden;background:var(--fundo);color:var(--texto);font-family:"Segoe UI",system-ui,sans-serif;line-height:1.35}
+header{flex:none;background:var(--placa);color:#f4eed8;padding:8px 20px;border-bottom:4px solid var(--cobre);display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 18px}
+header h1{margin:0;font-size:1.15rem}
+header p{margin:0;font-size:.85rem;opacity:.85}
+main{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(320px,1fr);gap:20px;padding:16px 20px;max-width:1300px;width:100%;margin:0 auto;align-items:start}
+.tabuleiro{display:grid;grid-template-columns:repeat(5,1fr);grid-auto-rows:1fr;gap:14px 10px;padding:18px 14px 14px;background:var(--placa);border-radius:10px;height:min(430px,calc(100dvh - 110px))}
+.casa{position:relative;display:flex;align-items:center;justify-content:center;text-align:center;padding:4px;font:700 clamp(11px,1.15vw,15px) inherit;font-family:inherit;color:var(--texto);background:var(--pad);border:2px dashed rgba(15,74,71,.55);border-radius:8px;cursor:pointer;min-width:0}
+.casa.vazia::after{content:"?";color:#8a9a96}
+.casa.cheia{border-style:solid;border-color:var(--placa);cursor:grab}
+.casa.sel{background:#ffe3b8;outline:3px solid var(--cobre);outline-offset:1px}
+.casa.ok{background:var(--certo);border-color:var(--certo-b)}
+.casa.err{background:var(--errado);border-color:var(--errado-b)}
+.casa.rev{color:var(--cobre)}
+.casa.sobre{background:#fff;outline:3px dashed var(--cobre)}
+.casa .n{position:absolute;top:-10px;left:-8px;width:22px;height:22px;border-radius:50%;background:var(--texto);color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.painel{display:flex;flex-direction:column;gap:14px;min-width:0}
+.pista-atual{margin:0;padding:10px 14px;background:#fff;border-left:5px solid var(--cobre);border-radius:4px;font-size:1rem;min-height:5.2em}
+.pista-atual em{display:block;margin-top:4px;color:var(--cobre);font-size:.9rem}
+h2{margin:0 0 8px;font-size:1.05rem;padding-bottom:3px;border-bottom:2px solid var(--cobre)}
+.termos{display:flex;flex-wrap:wrap;gap:7px;min-height:3em;padding:4px;border-radius:8px}
+.termos.sobre{outline:2px dashed var(--cobre)}
+.chip{font:600 .88rem inherit;font-family:inherit;padding:6px 13px;border:2px solid var(--placa);border-radius:999px;background:var(--pad);color:var(--texto);cursor:grab}
+.chip:hover{background:#ffe3b8}
+.chip:focus-visible,.casa:focus-visible,button:focus-visible{outline:3px solid var(--placa);outline-offset:2px}
+.controles{display:flex;flex-wrap:wrap;gap:8px}
+button.btn,.controles button{font:600 .9rem inherit;font-family:inherit;padding:8px 16px;border:0;border-radius:6px;background:var(--cobre);color:#fff;cursor:pointer}
+.controles button.sec{background:transparent;color:var(--placa);box-shadow:inset 0 0 0 2px var(--placa)}
+.controles button:hover{filter:brightness(1.08)}
+.barra{height:14px;border:2px solid var(--placa);border-radius:999px;background:#fff;overflow:hidden}
+.barra i{display:block;height:100%;width:0;background:var(--cobre);transition:width .3s}
+.contador{margin:6px 0 0;font-weight:700}
+@media (max-width:900px){
+  main{grid-template-columns:1fr;gap:10px;padding:10px}
+  .tabuleiro{grid-template-columns:repeat(3,1fr);gap:12px 8px;height:min(300px,36dvh)}
+  .pista-atual{min-height:4.2em;font-size:.92rem}
+  .painel{gap:8px}
+  header p{display:none}
+}

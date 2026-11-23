@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Encaixe de Arquitetura Computacional</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Encaixe de Arquitetura Computacional</h1>
+  <p>Clique numa casa numerada para ler a pista. Depois escolha o termo certo: clicando nele ou arrastando até a casa.</p>
+</header>
+<main>
+  <section id="tabuleiro" class="tabuleiro" aria-label="Casas numeradas"></section>
+  <section class="painel">
+    <p id="pista-atual" class="pista-atual" aria-live="polite"></p>
+    <div>
+      <h2>Termos</h2>
+      <div id="termos" class="termos" aria-label="Termos disponíveis"></div>
+    </div>
+    <div class="controles">
+      <button id="btn-conferir" type="button">Conferir</button>
+      <button id="btn-dica" type="button" class="sec">Dica</button>
+      <button id="btn-resposta" type="button" class="sec">Mostrar resposta</button>
+      <button id="btn-reiniciar" type="button" class="sec">Reiniciar</button>
+    </div>
+    <div class="progresso">
+      <div class="barra"><i id="barra"></i></div>
+      <p id="contador" class="contador" role="status" aria-live="polite">0 de 15 palavras</p>
+    </div>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
